@@ -7,19 +7,28 @@
         {
             "name": "just_movies",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "args": [
+                "--dart-define=env=dev"
+            ]
         },
         {
             "name": "just_movies (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "args": [
+                "--dart-define=env=dev"
+            ]
         },
         {
             "name": "just_movies (release mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "args": [
+                "--dart-define=env=prod"
+            ]
         }
     ]
 }
