@@ -41,7 +41,7 @@ void main() {
       await tester.pumpWidget(const MaterialApp(home: HomePage()));
       await tester.pumpAndSettle();
       //assert
-      expect(find.text('Error'), findsOneWidget);
+      expect(find.text('Falha ao obter dados.'), findsOneWidget);
     });
   });
 }

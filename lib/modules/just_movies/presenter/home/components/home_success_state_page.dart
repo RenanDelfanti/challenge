@@ -11,7 +11,7 @@ class HomeSuccessStatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       padding: const EdgeInsets.all(16),
-      crossAxisCount: 3,
+      crossAxisCount: MediaQuery.of(context).size.width > 700 ? 5 : 2,
       mainAxisSpacing: 8,
       crossAxisSpacing: 8,
       childAspectRatio: 0.7,

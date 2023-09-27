@@ -17,9 +17,7 @@ class MovieDetailsPage extends StatelessWidget {
           if (state is MovieDetailsLoadingState) {
             return const LoadingStatePage();
           } else if (state is MovieDetailsErrorState) {
-            return Center(
-              child: Text(state.message),
-            );
+            return const ErrorStatePage();
           } else {
             return MovieDetailsSuccessStatePage(state: state as MovieDetailsSuccessState);
           }

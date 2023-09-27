@@ -21,9 +21,7 @@ class HomePage extends StatelessWidget {
         bloc: GetIt.I<HomeController>(),
         builder: (context, state) {
           if (state is HomeErrorState) {
-            return const Center(
-              child: Text('Error'),
-            );
+            return const ErrorStatePage();
           } else if (state is HomeLoadingState && state.isFirstFetch) {
             return const LoadingStatePage();
           }

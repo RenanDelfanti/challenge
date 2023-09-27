@@ -2,16 +2,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../_exports.dart';
 
 class HomeController extends Cubit<HomeState> {
-  HomeController({required this.usecase})
-      : super(HomeLoadingState(
-          oldMovies: const [],
-          isFirstFetch: true,
-        )) {
+  HomeController({required this.usecase}) : super(HomeLoadingState(oldMovies: const [], isFirstFetch: true)) {
     fetchData();
   }
 
   final IGetMoviesUsecase usecase;
   int page = 1;
+  int maxPage = 1;
   late List<MovieEntity> movies = [];
 
   Future<void> fetchData({int page = 1}) async {
@@ -24,20 +21,23 @@ class HomeController extends Cubit<HomeState> {
     result.fold((failure) => emit(HomeErrorState()), (page) {
       movies.clear();
       movies.addAll(page.movies);
+      maxPage = page.totalPages;
       emit(HomeSuccessState(movies: movies));
     });
   }
 
   Future<void> fetchNextPage() async {
-    page++;
-    emit(HomeLoadingState(
-      oldMovies: movies,
-      isFirstFetch: page == 1,
-    ));
-    var result = await usecase(page: page);
-    result.fold((failure) => emit(HomeErrorState()), (page) {
-      movies.addAll(page.movies);
-      emit(HomeSuccessState(movies: movies));
-    });
+    if (maxPage > page) {
+      page++;
+      emit(HomeLoadingState(
+        oldMovies: movies,
+        isFirstFetch: page == 1,
+      ));
+      var result = await usecase(page: page);
+      result.fold((failure) => emit(HomeErrorState()), (page) {
+        movies.addAll(page.movies);
+        emit(HomeSuccessState(movies: movies));
+      });
+    }
   }
 }

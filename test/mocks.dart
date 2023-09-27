@@ -20,7 +20,7 @@ class FakeApiRequest extends Fake implements ApiRequest {}
 
 const PageMoviesEntity tPageMoviesEntity = PageMoviesEntity(
   page: 1,
-  totalPages: 1,
+  totalPages: 3,
   totalResults: 1,
   movies: [tMovieEntity],
 );
