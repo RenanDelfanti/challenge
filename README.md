@@ -13,7 +13,8 @@
 - Injeção de dependencia, utilizei o GetIt.
 - Testes unitarios, utilizei o Mocktail.
 
-- DEMO: ![](https://github.com/RenanDelfanti/just-movies/blob/main/demo.gif)
+  # DEMO
+  ![](https://github.com/RenanDelfanti/just-movies/blob/main/demo.gif)
 
 # TODOS: 
 - Adicionar responsividade para telas maiores
