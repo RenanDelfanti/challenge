@@ -1,3 +1,4 @@
+// coverage:ignore-file
 import 'package:equatable/equatable.dart';
 import '../../../../_exports.dart';
 

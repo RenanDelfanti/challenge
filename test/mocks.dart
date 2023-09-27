@@ -10,6 +10,10 @@ class MockJustMoviesRepository extends Mock implements IJustMoviesRepository {}
 
 class MockJustMoviesDatasource extends Mock implements IJustMoviesDatasource {}
 
+class MockGetMoviesUsecase extends Mock implements IGetMoviesUsecase {}
+
+class MockGetMovieDetailsUsecase extends Mock implements IGetMovieDetailsUsecase {}
+
 class MockApiClient extends Mock implements IApiClient {}
 
 class FakeApiRequest extends Fake implements ApiRequest {}

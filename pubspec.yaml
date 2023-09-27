@@ -1,5 +1,5 @@
 name: just_movies
-description: A new Flutter project.
+description: A catalog of popular movies from TMDB.
 
 publish_to: 'none'
 
