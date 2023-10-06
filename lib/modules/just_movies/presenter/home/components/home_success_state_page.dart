@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../_exports.dart';
 
 class HomeSuccessStatePage extends StatelessWidget {
@@ -19,10 +20,10 @@ class HomeSuccessStatePage extends StatelessWidget {
         for (final movie in movies)
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushNamed(
-                RoutesImpl.details,
-                arguments: {
-                  'id': movie.id,
+              context.goNamed(
+                RouterImpl.details,
+                queryParameters: {
+                  'id': movie.id.toString(),
                   'title': movie.title,
                 },
               );

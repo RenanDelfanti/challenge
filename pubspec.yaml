@@ -1,12 +1,12 @@
 name: just_movies
 description: A catalog of popular movies from TMDB.
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.1.1 <4.0.0'
+  sdk: ">=3.1.1 <4.0.0"
 
 dependencies:
   flutter:
@@ -18,7 +18,8 @@ dependencies:
   dartz: ^0.10.1
   dio: ^5.3.3
   flutter_bloc: ^8.1.3
-  
+  go_router: ^11.1.2
+
   interfaces:
     path: packages/interfaces
 
@@ -30,6 +31,4 @@ dev_dependencies:
   mocktail: ^1.0.0
 
 flutter:
-
   uses-material-design: true
-

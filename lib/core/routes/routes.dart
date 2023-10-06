@@ -1,5 +1,6 @@
 // coverage:ignore-file
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:interfaces/interfaces.dart';
 import '../../_exports.dart';
 
@@ -29,4 +30,44 @@ class RoutesImpl {
           );
         }
       };
+}
+
+class RouterImpl {
+  static const String home = '/';
+  static const String details = 'details';
+
+  static final GoRouter routes = GoRouter(
+    routes: <RouteBase>[
+      GoRoute(
+        name: home,
+        path: home,
+        builder: (BuildContext context, GoRouterState state) {
+          return AutoBindingPage(
+            bindings: [
+              HomeBindings(),
+            ],
+            page: const HomePage(),
+          );
+        },
+        routes: <RouteBase>[
+          GoRoute(
+            name: details,
+            path: details,
+            builder: (BuildContext context, GoRouterState state) {
+              var params = state.uri.queryParameters;
+              return AutoBindingPage(
+                bindings: [
+                  MovieDetailsBindings(
+                    movieId: int.tryParse(params['id'] ?? '0') ?? 0,
+                    title: params['title'] ?? '',
+                  ),
+                ],
+                page: const MovieDetailsPage(),
+              );
+            },
+          ),
+        ],
+      ),
+    ],
+  );
 }

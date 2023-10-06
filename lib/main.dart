@@ -12,14 +12,15 @@ class JustMoviesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Just Popular Movies',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      routes: RoutesImpl.routes,
-      initialRoute: RoutesImpl.home,
+      //routes: RoutesImpl.routes,
+      //initialRoute: RoutesImpl.home,
+      routerConfig: RouterImpl.routes,
     );
   }
 }
